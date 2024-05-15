@@ -10,10 +10,6 @@ class TicektListView extends StatelessWidget {
     return ListView.builder(
       itemCount: ticketModel.length,
       itemBuilder: (context, index) {
-        Container(
-        //  child: IconButton(onPressed: () {}, icon: Icons.delete),
-        );
-
         return TicketInTrip(
           ticketModel: ticketModel[index],
         );

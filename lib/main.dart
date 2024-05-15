@@ -1,6 +1,6 @@
-import 'package:airease/screens/flightbook.dart';
-import 'package:airease/screens/homepage.dart';
-import 'package:airease/screens/mytrip.dart';
+import 'package:airease/screens/available_flights.dart';
+import 'package:airease/services/flight_service/get_all_flight.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         textTheme: GoogleFonts.poppinsTextTheme()
       ),
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: AvailableFlights(),
       // IntroScreen() // Use the correct method name here
     );
   }

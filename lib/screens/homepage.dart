@@ -98,15 +98,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                //   SizedBox(height: 5),
-                  Flight(
-                      fromCity: 'dd',
-                      toCity: "toCity",
-                      date: "date",
-                      timeOfFlight: "timeOfFlight",
-                      flightNumber: "flightNumber",
-                      price: 222,
-                      fromCountry: "d",
-                      toCountry: "d"),
+////////////////////////////////////////////////flight/////////////////////
                   Row(
                     children: [
                       SizedBox(width: 24),
