@@ -38,6 +38,10 @@ dependencies:
   google_fonts: ^5.1.0
 
   smooth_page_indicator: ^1.1.0
+  dio: ^5.4.3+1
+  flutter_bloc: ^8.1.5
+  carousel_slider: ^4.2.1
+  web_socket_channel: ^2.4.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -73,7 +77,13 @@ flutter:
   - assets/97f5cfd7ebaadd38fd8158b0cade60e3.png
   - assets/ef3c0551b78d0932139c091bd079260c.png
   - assets/large-NaZxbgjtn--removebg-preview-removebg-preview.png
-
+  - assets/Frame.png
+  - assets/abudhabi.jpg
+  - assets/cairo.jpg
+  - assets/china.jpg
+  - assets/america.jpg
+  - assets/almadina.jpg
+  - assets/paris.jpg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
