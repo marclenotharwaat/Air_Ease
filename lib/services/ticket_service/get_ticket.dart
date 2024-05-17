@@ -1,6 +1,7 @@
 
 import 'package:airease/config.dart';
 import 'package:airease/models/ticket_model.dart';
+import 'package:airease/models/user_model.dart';
 import 'package:dio/dio.dart';
 
 
@@ -12,7 +13,7 @@ class GetTickets {
   Future<List<TicketModel>> getTickets() async {
     try {
       Response response =
-          await dio.get('${urlBase}/ticket/getTicket/6643b0cca6293ddd635de83c');
+          await dio.get('${urlBase}/ticket/getTicket/${UserModel.id}');
       print(response);
       Map<String, dynamic> jsonData = response.data;
       List<dynamic> tickets = jsonData['data'];

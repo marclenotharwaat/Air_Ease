@@ -1,3 +1,4 @@
+import 'package:airease/config.dart';
 import 'package:airease/models/flight_model.dart';
 import 'package:dio/dio.dart';
 
@@ -11,13 +12,13 @@ class GetAllFlights {
       Response response;
       if (country != null) {
         response = await dio
-            .get('http://192.168.1.8:10000/flight/getAllFlights?to=$country');
+            .get('${urlBase}/flight/getAllFlights?to=$country');
       } else if (from != null && to != null) {
         response = await dio.get(
-            'http://192.168.1.2:10000/flight/getAllFlights?from=$from&distination=$to');
+            '${urlBase}/flight/getAllFlights?from=$from&to=$to');
       } else {
         response =
-            await dio.get('http://192.168.1.8:10000/flight/getAllFlights');
+            await dio.get('${urlBase}/flight/getAllFlights');
       }
       Map<String, dynamic> jsonData = response.data;
       List<dynamic> flights = jsonData['flights'];

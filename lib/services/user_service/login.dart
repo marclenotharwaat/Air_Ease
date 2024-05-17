@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:airease/config.dart';
 import 'package:airease/models/user_model.dart';
 import 'package:http/http.dart' as http;
 
@@ -16,7 +17,7 @@ class Login {
       };
 
       final response = await http.post(
-        Uri.parse('http://192.168.1.8:10000/users/login'),
+        Uri.parse('${urlBase}/users/login'),
         headers: {"Content-Type": "application/json"},
         body: jsonEncode(req),
       );
