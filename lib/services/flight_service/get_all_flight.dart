@@ -6,31 +6,45 @@ class GetAllFlights {
 
   GetAllFlights({required this.dio});
 
-  Future<List<FlightModel>> getAllFlighs() async {
+  Future<List<FlightModel>> getAllFlighs({country, from, to}) async {
     try {
-      Response response =
-          await dio.get('http://192.168.1.6:10000/flight/getAllFlights');
-      print(response);
+      Response response;
+      if (country != null) {
+        response = await dio
+            .get('http://192.168.1.8:10000/flight/getAllFlights?to=$country');
+      } else if (from != null && to != null) {
+        response = await dio.get(
+            'http://192.168.1.2:10000/flight/getAllFlights?from=$from&distination=$to');
+      } else {
+        response =
+            await dio.get('http://192.168.1.8:10000/flight/getAllFlights');
+      }
       Map<String, dynamic> jsonData = response.data;
       List<dynamic> flights = jsonData['flights'];
-      List<FlightModel> flihgtList = [];
+      List<FlightModel> flightList = [];
+
       for (var flight in flights) {
         FlightModel flightModel = FlightModel(
-          from: flight['from'],
-          distination: flight['distination'],
-          price: flight['price'],
-          departureDate: DateTime.parse(flight['departureDate']),
-          abbreviationDistination: flight['abbreviationDistination'],
-          abbreviationFrom: flight['abbreviationFrom'],
-          numOfFlightHour: flight['numOfFlightHour'],
-          id: flight['_id'],
-          arrivalDate: DateTime.parse(flight['arrivalDate']),
-          busSeats: flight['busSeats'],
-          ecoSeats: flight['ecoSeats'],
+          from: flight['from'] ?? 'Unknown',
+          to: flight['to'] ?? 'Unknown',
+          price: flight['price'] ?? 0,
+          departureDate: flight['departureDate'] != null
+              ? DateTime.parse(flight['departureDate'])
+              : DateTime.now(),
+          abbreviationTo: flight['abbreviationDistination'] ?? 'UNK',
+          abbreviationFrom: flight['abbreviationFrom'] ?? 'UNK',
+          numOfFlightHour: flight['numOfFlightHour'] ?? 0,
+          id: flight['_id'] ?? 'Unknown',
+          arrivalDate: flight['arrivalDate'] != null
+              ? DateTime.parse(flight['arrivalDate'])
+              : DateTime.now(),
+          busSeats: flight['busSeats'] ?? 0,
+          ecoSeats: flight['ecoSeats'] ?? 0,
         );
-        flihgtList.add(flightModel);
+        flightList.add(flightModel);
       }
-      return flihgtList;
+
+      return flightList;
     } on Exception catch (e) {
       return [];
     }

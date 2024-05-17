@@ -1,30 +1,32 @@
-import 'package:airease/models/flight_model.dart';
 import 'package:airease/services/flight_service/get_all_flight.dart';
 import 'package:airease/widget/flight_list_view.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-class FlightListViewBuilder extends StatelessWidget {
-  const FlightListViewBuilder({
-    Key? key,
-  }) : super(key: key);
+class FlightListViewSearchBuilder extends StatelessWidget {
+  const FlightListViewSearchBuilder(
+      {Key? key, required this.from, required this.to})
+      : super(key: key);
+  final String from;
+  final String to;
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: GetAllFlights(dio: Dio()).getAllFlighs(),
+      future: GetAllFlights(dio: Dio()).getAllFlighs(from: from, to: to),
       builder: (context, AsyncSnapshot snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return Center(
-            child: SpinKitCircle(
-              color: Colors.blue,
-              size: 50.0,
+            child: SpinKitCircle( // Using SpinKitCircle indicator
+              color: Colors.blue, // You can customize the color
+              size: 50.0, // You can customize the size
             ),
           );
         } else if (snapshot.hasError) {
-          print(snapshot.error.toString());
-          return Text("Error: ${snapshot.error}");
+          return Center(
+            child: Text('Error: ${snapshot.error}'),
+          );
         } else {
           return FlightListView(flightModelList: snapshot.data!);
         }

@@ -1,4 +1,3 @@
-import 'package:airease/widget/ticket.dart';
 
 class TicketModel {
   final String ticketNumber;

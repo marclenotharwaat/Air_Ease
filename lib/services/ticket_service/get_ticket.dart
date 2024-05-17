@@ -11,7 +11,7 @@ class GetTickets {
   Future<List<TicketModel>> getTickets() async {
     try {
       Response response =
-          await dio.get('http://192.168.1.6:10000/ticket/getTicket/6643b0cca6293ddd635de83c');
+          await dio.get('http://192.168.1.8:10000/ticket/getTicket/6643b0cca6293ddd635de83c');
       print(response);
       Map<String, dynamic> jsonData = response.data;
       List<dynamic> tickets = jsonData['data'];
@@ -30,7 +30,8 @@ class GetTickets {
             flight: ticket['Flight'],
             numOfFlightHour: ticket['numOfFlightHour'],
             id: ticket['_id'],
-            bookingDate: DateTime.parse(ticket['bookingDate']));
+            bookingDate: DateTime.parse(ticket['bookingDate']),
+            );
         ticketList.add(ticketModel);
       }
       return ticketList;

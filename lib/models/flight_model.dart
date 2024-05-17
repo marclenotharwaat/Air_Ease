@@ -1,9 +1,9 @@
 class FlightModel {
   String id;
   String from;
-  String distination;
+  String to;
   String abbreviationFrom;
-  String abbreviationDistination;
+  String abbreviationTo;
   DateTime departureDate;
   DateTime arrivalDate;
   int price;
@@ -14,9 +14,9 @@ class FlightModel {
   FlightModel({
     required this.id,
     required this.from,
-    required this.distination,
+    required this.to,
     required this.abbreviationFrom,
-    required this.abbreviationDistination,
+    required this.abbreviationTo,
     required this.departureDate,
     required this.arrivalDate,
     required this.price,
@@ -28,9 +28,9 @@ class FlightModel {
   factory FlightModel.fromJson(Map<String, dynamic> json) => FlightModel(
         id: json["_id"],
         from: json["from"],
-        distination: json["distination"],
+        to: json["to"],
         abbreviationFrom: json["abbreviationFrom"],
-        abbreviationDistination: json["abbreviationDistination"],
+        abbreviationTo: json["abbreviationDistination"],
         departureDate: DateTime.parse(json["departureDate"]),
         arrivalDate: DateTime.parse(json["arrivalDate"]),
         price: json["price"],

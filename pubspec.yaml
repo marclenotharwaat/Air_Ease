@@ -2,7 +2,7 @@ name: airease
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.2.3 <4.0.0'
+  sdk: ">=3.2.3 <4.0.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -30,23 +30,22 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   google_fonts: ^5.1.0
+  flutter_spinkit: ^5.0.0
 
   smooth_page_indicator: ^1.1.0
   dio: ^5.4.3+1
   flutter_bloc: ^8.1.5
   carousel_slider: ^4.2.1
   web_socket_channel: ^2.4.0
+  google_nav_bar: ^5.0.6
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_launcher_icons: ^0.13.1
-
 
 flutter_launcher_icons:
   android: "launcher_icon"
@@ -64,7 +63,6 @@ flutter_launcher_icons:
 
 # The following section is specific to Flutter packages.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -72,18 +70,18 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-  - assets/fa21c4c15dd93a5ba21307bed73232d4.png
-  - assets/baa4658005f66bd09401266d40dd2fe3.png
-  - assets/97f5cfd7ebaadd38fd8158b0cade60e3.png
-  - assets/ef3c0551b78d0932139c091bd079260c.png
-  - assets/large-NaZxbgjtn--removebg-preview-removebg-preview.png
-  - assets/Frame.png
-  - assets/abudhabi.jpg
-  - assets/cairo.jpg
-  - assets/china.jpg
-  - assets/america.jpg
-  - assets/almadina.jpg
-  - assets/paris.jpg
+    - assets/fa21c4c15dd93a5ba21307bed73232d4.png
+    - assets/baa4658005f66bd09401266d40dd2fe3.png
+    - assets/97f5cfd7ebaadd38fd8158b0cade60e3.png
+    - assets/ef3c0551b78d0932139c091bd079260c.png
+    - assets/large-NaZxbgjtn--removebg-preview-removebg-preview.png
+    - assets/Frame.png
+    - assets/abudhabi.jpg
+    - assets/cairo.jpg
+    - assets/china.jpg
+    - assets/america.jpg
+    - assets/almadina.jpg
+    - assets/paris.jpg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

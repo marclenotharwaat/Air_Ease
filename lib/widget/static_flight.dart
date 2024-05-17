@@ -1,12 +1,9 @@
-import 'package:airease/models/flight_model.dart';
 import 'package:flutter/material.dart';
 
-class Flight extends StatelessWidget {
-  const Flight({
+class StaticFlight extends StatelessWidget {
+  const StaticFlight({
     super.key,
-    required this.flightModel,
   });
-  final FlightModel flightModel;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -27,7 +24,7 @@ class Flight extends StatelessWidget {
                 Row(
                   children: <Widget>[
                     Text(
-                      flightModel.abbreviationFrom,
+                      "NYC",
                       style: TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.w500,
@@ -117,7 +114,7 @@ class Flight extends StatelessWidget {
                       width: 16,
                     ),
                     Text(
-                      flightModel.abbreviationFrom,
+                      'SFO',
                       style: TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.w500,
@@ -134,7 +131,7 @@ class Flight extends StatelessWidget {
                     SizedBox(
                       width: 100,
                       child: Text(
-                        flightModel.from,
+                        'New York City',
                         style: TextStyle(
                             fontSize: 14,
                             color: Colors.black,
@@ -142,7 +139,7 @@ class Flight extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      flightModel.numOfFlightHour,
+                      '2h/35m',
                       style: TextStyle(
                           fontSize: 13,
                           fontWeight: FontWeight.bold,
@@ -151,7 +148,7 @@ class Flight extends StatelessWidget {
                     SizedBox(
                       width: 100,
                       child: Text(
-                        flightModel.to,
+                        'San Fransisco',
                         textAlign: TextAlign.end,
                         style: TextStyle(fontSize: 14, color: Colors.black),
                       ),
@@ -187,11 +184,11 @@ class Flight extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Text(
-                      '${flightModel.departureDate.hour}:${flightModel.departureDate.minute}',
+                      'Feb 25, 11:30pm',
                       style: TextStyle(fontSize: 14, color: Colors.black),
                     ),
                     Text(
-                      flightModel.id,
+                      'AB689',
                       style: TextStyle(fontSize: 14, color: Colors.black),
                     ),
                   ],

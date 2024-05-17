@@ -1,31 +1,31 @@
-import 'package:airease/widget/bottomNavBar.dart';
-import 'package:airease/widget/flight_list_view_bulder.dart';
+import 'package:airease/widget/ticket_list_view_bulder.dart';
 import 'package:flutter/material.dart';
 
-class AvailableFlights extends StatelessWidget {
-  const AvailableFlights({super.key});
+class MyTrip extends StatelessWidget {
+  const MyTrip({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           iconTheme: IconThemeData(
-            color: Colors.white,
+            color: Colors.white, //change your color here
           ),
           centerTitle: true,
           title: Text(
-            "Available Flights",
+            "My Trip",
             style: TextStyle(
-                fontSize: 20, fontWeight: FontWeight.w600, color: Colors.white),
+                fontSize: 18, fontWeight: FontWeight.w600, color: Colors.white),
           ),
           elevation: 0,
           leading: IconButton(
             icon: Icon(Icons.arrow_back),
             onPressed: () {
+              // Perform your custom action when the back button is pressed
               Navigator.popUntil(context, (route) => route.isFirst);
             },
           ),
         ),
-        body: FlightListViewBuilder());
+        body: TicketListViewBulder());
   }
 }

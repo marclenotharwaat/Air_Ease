@@ -1,7 +1,8 @@
-import 'package:airease/widget/flight.dart';
+import 'package:airease/screens/flightsByCountry.dart';
+import 'package:airease/screens/searchScreen.dart';
+import 'package:airease/widget/static_flight.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:airease/helper/ws.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -13,6 +14,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   IconData? _selectedIcon;
   String _selectedText = '';
+  var _action;
 
   @override
   Widget build(BuildContext context) {
@@ -77,15 +79,17 @@ class _HomePageState extends State<HomePage> {
                     height: 41.2,
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => MyApp()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SearchScreen()));
                       },
                       style: ElevatedButton.styleFrom(
+                        foregroundColor: Colors.black,
+                        backgroundColor: Colors.white,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8.0),
                         ),
-                        primary: Colors.white,
-                        onPrimary: Colors.black,
                       ),
                       child: Text(
                         "Search a flight",
@@ -97,8 +101,9 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                   ),
-               //   SizedBox(height: 5),
+                  //   SizedBox(height: 5),
 ////////////////////////////////////////////////flight/////////////////////
+                  StaticFlight(),
                   Row(
                     children: [
                       SizedBox(width: 24),
@@ -106,7 +111,7 @@ class _HomePageState extends State<HomePage> {
                         "Popular Places",
                         style: TextStyle(
                           color: Color.fromRGBO(255, 255, 255, 1),
-                          fontSize: 20,
+                          fontSize: 19,
                           fontWeight: FontWeight.bold,
                           fontFamily: 'Roboto',
                         ),
@@ -142,69 +147,6 @@ class _HomePageState extends State<HomePage> {
             ),
           );
         },
-      ),
-      bottomNavigationBar: BottomAppBar(
-        height: 65,
-        color: Color.fromARGB(33, 134, 140, 1),
-        shape: const CircularNotchedRectangle(),
-        notchMargin: 5.0,
-        clipBehavior: Clip.antiAlias,
-        child: SizedBox(
-          height: kBottomNavigationBarHeight,
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget>[
-              _buildIconButtonWithText(Icons.home, ' Home' ),
-              _buildIconButtonWithText(Icons.flight_takeoff, ' Flights'),
-              _buildIconButtonWithText(Icons.calendar_today_rounded, ' Trips'),
-              _buildIconButtonWithText(
-                  Icons.account_circle_outlined, ' Profile'),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildIconButtonWithText(IconData icon, String text) {
-    return Expanded(
-      child: InkWell(
-        onTap: () {
-          setState(() {
-            _selectedIcon = icon;
-            _selectedText = text;
-          });
-        },
-        child: Container(
-          decoration: BoxDecoration(
-            color: _selectedIcon == icon
-                ? Color.fromARGB(226, 255, 255, 255)
-                : Color.fromARGB(0, 214, 215, 215),
-            borderRadius: BorderRadius.circular(20),
-          ),
-          padding: EdgeInsets.symmetric(horizontal: 8, vertical: 5),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Icon(
-                icon,
-                color: _selectedIcon == icon
-                    ? Color.fromARGB(255, 0, 2, 1)
-                    : Colors.white,
-              ),
-              SizedBox(width: _selectedIcon == Icons.home ? 4.7 : 0),
-              Text(
-                _selectedIcon == icon ? text : '',
-                style: TextStyle(
-                  color: const Color.fromARGB(255, 0, 0, 0),
-                  fontSize: 11,
-                ),
-              ),
-              // if (_selectedIcon != Icons.home) Spacer(),
-            ],
-          ),
-        ),
       ),
     );
   }
@@ -254,13 +196,21 @@ class _SliderWithImagesAndDescriptionsState
           itemBuilder: (BuildContext context, int index, int realIndex) {
             return GestureDetector(
               onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => FlightsByCountry(
+                      country: countries[index],
+                    ),
+                  ),
+                );
                 setState(() {
                   _selectedIndex = index;
                   print("selected ${_selectedIndex}");
                 });
               },
               child: Container(
-                height: 200,
+                height: 100,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(10.0),
@@ -276,7 +226,7 @@ class _SliderWithImagesAndDescriptionsState
                         ),
                         child: Image.asset(
                           imageUrls[index],
-                          height: 180,
+                          height: 160,
                           width: double.infinity,
                           fit: BoxFit.fill,
                         ),
@@ -308,7 +258,7 @@ class _SliderWithImagesAndDescriptionsState
             );
           },
           options: CarouselOptions(
-            height: 250,
+            height: 230,
             autoPlay: true,
             enlargeCenterPage: true,
             aspectRatio: 16 / 9,
