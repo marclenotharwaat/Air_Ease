@@ -1,9 +1,11 @@
+import 'package:airease/models/flight_model.dart';
+import 'package:airease/screens/homepage.dart';
 import 'package:airease/widget/ticket.dart';
 import 'package:flutter/material.dart';
 
 class Boardingpass extends StatelessWidget {
-  const Boardingpass({super.key});
-
+  const Boardingpass({super.key, required this.flightModel});
+final FlightModel flightModel;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,22 +24,17 @@ class Boardingpass extends StatelessWidget {
           icon: Icon(Icons.arrow_back),
           onPressed: () {
             // Perform your custom action when the back button is pressed
-            Navigator.popUntil(context, (route) => route.isFirst);
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+             return HomePage();
+            },));
           },
         ),
       ),
       body: Column(
         children: <Widget>[
           Image.asset("assets/Frame.png"),
-          Ticket(
-              fromCity: "aasdfs",
-              toCity: 'asd',
-              date: "22/4/2023",
-              timeOfFlight: "66",
-              flightNumber: "flightNumber",
-              price: 222,
-              fromCountry: "asd",
-              toCountry: "fgh"),
+          Ticket(flightModel: flightModel,
+             ),
         ],
       ),
     );

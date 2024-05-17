@@ -1,42 +1,42 @@
-
 class TicketModel {
   final String ticketNumber;
   final String from;
-  final String distination;
+  final String to;
   final int price;
   final DateTime departureDate;
-  final String abbreviationDistination;
   final String abbreviationFrom;
   final String kindOfTicket;
   final String ticktOwner;
   final String flight;
+  final String numOfFlightHour;
   final String id;
   final DateTime bookingDate;
-  final String numOfFlightHour;
+  final String abbreviationTo;
 
   TicketModel({
+    required this.flight,
+    required this.id,
     required this.ticketNumber,
     required this.from,
-    required this.distination,
+    required this.to,
     required this.price,
     required this.departureDate,
-    required this.abbreviationDistination,
     required this.abbreviationFrom,
     required this.kindOfTicket,
     required this.ticktOwner,
-    required this.flight,
     required this.numOfFlightHour,
-    required this.id,
     required this.bookingDate,
+    required this.abbreviationTo
+  
   });
 
   factory TicketModel.fromJson(Map<String, dynamic> json) => TicketModel(
         ticketNumber: json["ticketNumber"],
         from: json["from"],
-        distination: json["distination"],
+        to: json["to"],
         price: json["price"],
         departureDate: DateTime.parse(json["departureDate"]),
-        abbreviationDistination: json["abbreviationDistination"],
+        abbreviationTo: json["abbreviationTo"],
         abbreviationFrom: json["abbreviationFrom"],
         kindOfTicket: json["kindOfTicket"],
         ticktOwner: json["ticktOwner"],
@@ -49,10 +49,10 @@ class TicketModel {
   factory TicketModel.toJson(Map<String, dynamic> json) => TicketModel(
         ticketNumber: json["ticketNumber"],
         from: json["from"],
-        distination: json["destination"],
+        to: json["destination"],
         price: json["price"],
         departureDate: DateTime.parse(json["departureDate"]),
-        abbreviationDistination: json["abbreviationDestination"],
+        abbreviationTo: json["abbreviationTo"],
         abbreviationFrom: json["abbreviationFrom"],
         kindOfTicket: json["kindOfTicket"],
         ticktOwner: json["ticketOwner"],

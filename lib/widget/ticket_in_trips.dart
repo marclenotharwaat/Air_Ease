@@ -128,7 +128,7 @@ class TicketInTrip extends StatelessWidget {
                       width: 16,
                     ),
                     Text(
-                      ticketModel.abbreviationDistination,
+                      ticketModel.abbreviationTo,
                       style: TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.w500,
@@ -162,7 +162,7 @@ class TicketInTrip extends StatelessWidget {
                     SizedBox(
                       width: 100,
                       child: Text(
-                        ticketModel.distination,
+                        ticketModel.to,
                         textAlign: TextAlign.end,
                         style: TextStyle(fontSize: 16, color: Colors.black),
                       ),

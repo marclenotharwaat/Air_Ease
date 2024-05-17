@@ -1,7 +1,9 @@
 import 'package:airease/models/flight_model.dart';
 import 'package:airease/models/ticket_model.dart';
+import 'package:airease/models/user_model.dart';
 import 'package:airease/screens/boarding_pass.dart';
 import 'package:airease/services/ticket_service/create_ticket.dart';
+import 'package:airease/services/user_service/login.dart';
 
 import 'package:flutter/material.dart';
 
@@ -143,7 +145,7 @@ class FlightBook extends StatelessWidget {
                     Row(
                       children: [
                         Text(
-                          "asdfsdaf",
+                          "${flightModel.departureDate.year}"+"/${flightModel.departureDate.month}"+"/${flightModel.departureDate.day}" ,
                           style: TextStyle(
                             color: Colors.black,
                           ),
@@ -213,8 +215,9 @@ class FlightBook extends StatelessWidget {
                           ),
                           child: ElevatedButton(
                             onPressed: () async {
-                              String kindOfTicket = selectedItem;
-                              String ticktOwner = "662c402d6616d4579c75bcf3";
+                  
+                              String kindOfTicket =  selectedItem;
+                              String ticktOwner = await UserModel.id;
                               String flight = flightModel.id;
 
                               TicketModel? ticket = await CreateTicket()
@@ -225,7 +228,7 @@ class FlightBook extends StatelessWidget {
                                 print(ticket);
                                 Navigator.push(context, MaterialPageRoute(
                                   builder: (context) {
-                                    return Boardingpass();
+                                    return Boardingpass(flightModel: flightModel,);
                                   },
                                 ));
                               } else {

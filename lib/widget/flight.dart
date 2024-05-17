@@ -124,7 +124,7 @@ class Flight extends StatelessWidget {
                         width: 16,
                       ),
                       Text(
-                        flightModel.abbreviationFrom,
+                        flightModel.abbreviationTo,
                         style: TextStyle(
                             fontSize: 22,
                             fontWeight: FontWeight.w500,
@@ -194,7 +194,7 @@ class Flight extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Text(
-                        '${flightModel.departureDate.hour}:${flightModel.departureDate.minute}',
+                        '${flightModel.departureDate.month}/${flightModel.departureDate.day} , ${flightModel.departureDate.hour}:${flightModel.departureDate.minute}',
                         style: TextStyle(fontSize: 14, color: Colors.black),
                       ),
                       Text(

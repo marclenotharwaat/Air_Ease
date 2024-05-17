@@ -19,12 +19,7 @@ class AvailableFlights extends StatelessWidget {
                 fontSize: 20, fontWeight: FontWeight.w600, color: Colors.white),
           ),
           elevation: 0,
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back),
-            onPressed: () {
-              Navigator.popUntil(context, (route) => route.isFirst);
-            },
-          ),
+      
         ),
         body: FlightListViewBuilder());
   }

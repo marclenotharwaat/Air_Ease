@@ -1,3 +1,4 @@
+import 'package:airease/models/user_model.dart';
 import 'package:airease/screens/flightsByCountry.dart';
 import 'package:airease/screens/searchScreen.dart';
 import 'package:airease/widget/static_flight.dart';
@@ -24,37 +25,29 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       key: _scaffoldKey,
       backgroundColor: Color(0xFF21868C),
-      appBar: AppBar(
-        backgroundColor: Color(0xFF21868C),
-        leading: IconButton(
-          icon: Icon(Icons.menu, color: Color.fromRGBO(255, 255, 255, 1)),
-          onPressed: () {
-            _scaffoldKey.currentState!.openDrawer();
-          },
-        ),
-      ),
-      drawer: Drawer(),
+      // appBar: AppBar(
+      //   backgroundColor: Color(0xFF21868C),
+      //   // leading: IconButton(
+      //   //   icon: Icon(Icons.menu, color: Color.fromRGBO(255, 255, 255, 1)),
+      //   //   onPressed: () {
+      //   //     _scaffoldKey.currentState!.openDrawer();
+      //   //   },
+      //   // ),
+      // ),
+    //  drawer: Drawer(),
       body: Builder(
         builder: (BuildContext context) {
           return Container(
             child: SingleChildScrollView(
               child: Column(
                 children: [
+                  SizedBox(height: 70,),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       SizedBox(width: 30),
                       Text(
-                        "Hello, ",
-                        style: TextStyle(
-                          fontFamily: 'Roboto',
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromRGBO(15, 226, 8, 1),
-                        ),
-                      ),
-                      Text(
-                        "username!",
+                        "Hello, ${UserModel.firstName} "+ "${UserModel.lastName}",
                         style: TextStyle(
                           fontFamily: 'Roboto',
                           fontSize: 14,
@@ -69,7 +62,7 @@ class _HomePageState extends State<HomePage> {
                       "Where are you going?",
                       style: TextStyle(
                         fontFamily: 'Roboto',
-                        fontSize: 30,
+                        fontSize: 28,
                         color: Color.fromRGBO(255, 255, 255, 1),
                       ),
                     ),

@@ -1,3 +1,4 @@
+import 'package:airease/models/user_model.dart';
 import 'package:flutter/material.dart';
 
 
@@ -5,23 +6,23 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(33, 134, 140, 1),
+   //   backgroundColor: Color.fromARGB(33, 134, 140, 1),
       appBar: AppBar(
-        backgroundColor: const Color(0xFF1D1D1F),
-        title: Text('Profile'),
+       // backgroundColor: const Color(0xFF1D1D1F),
+        title: Text('Profile',style: TextStyle(color: Colors.white),),
         centerTitle: true,
-        leading: Container(
-          decoration: BoxDecoration(
-            border: Border.all(color: const Color(0xFF8C8A93), width: 2),
-            borderRadius: BorderRadius.circular(10),
-          ),
-          margin: EdgeInsets.all(7.0),
-          padding: EdgeInsets.only(right: 12, bottom: 5),
-          child: IconButton(
-            icon: Icon(Icons.arrow_back, color: const Color(0xfffefefe)),
-            onPressed: () => Navigator.of(context).pop(),
-          ),
-        ),
+        // leading: Container(
+        //   decoration: BoxDecoration(
+        //     border: Border.all(color: const Color(0xFF8C8A93), width: 2),
+        //     borderRadius: BorderRadius.circular(10),
+        //   ),
+        //   margin: EdgeInsets.all(7.0),
+        //   padding: EdgeInsets.only(right: 12, bottom: 5),
+        //   // child: IconButton(
+        //   //   icon: Icon(Icons.arrow_back, color: const Color(0xfffefefe)),
+        //   // //  onPressed: () => Navigator.of(context).pop(),
+        //   // ),
+        // ),
       ),
       body: SafeArea(
         child: Column(
@@ -33,7 +34,7 @@ class ProfileScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    'Amr Khaled',
+                    UserModel.firstName + UserModel.lastName,
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 19,
@@ -73,25 +74,25 @@ class ProfileScreen extends StatelessWidget {
       margin: EdgeInsets.symmetric(horizontal: 30.0, vertical: 4),
       decoration: BoxDecoration(
         border: Border(
-          top: BorderSide(color: const Color(0xFF8C8A93), width: 1),
-          bottom: BorderSide(color: const Color(0xFF8C8A93), width: 1),
-          right: BorderSide(color: const Color(0xFF8C8A93), width: 1),
-          left: BorderSide(color: const Color(0xFF8C8A93), width: 1),
+          top: BorderSide(color: Color.fromARGB(255, 255, 255, 255), width: 1),
+          bottom: BorderSide(color: Color.fromARGB(255, 255, 255, 255), width: 1),
+          right: BorderSide(color: Color.fromARGB(255, 255, 255, 255), width: 1),
+          left: BorderSide(color: Color.fromARGB(255, 255, 255, 255), width: 1),
         ),
       ),
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 25),
+        padding: EdgeInsets.symmetric(horizontal: 10),
         child: ListTile(
-          contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 2),
-          leading: Icon(icon, color: const Color(0xFF8C8A93)),
+          contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 0),
+          leading: Icon(icon, color: Color.fromARGB(255, 255, 255, 255)),
           title: Row(
             children: [
               Text(
                 text,
-                style: TextStyle(color: const Color(0xFF8C8A93), fontSize: 14),
+                style: TextStyle(color: Color.fromARGB(255, 255, 255, 255), fontSize: 14),
               ),
               Spacer(), // Add space to separate text and icon
-              Icon(Icons.keyboard_arrow_right, color: const Color(0xFF8C8A93)),
+              Icon(Icons.keyboard_arrow_right, color: Color.fromARGB(255, 255, 255, 255)),
             ],
           ),
           onTap: () {

@@ -1,6 +1,7 @@
 import 'package:airease/screens/available_flights.dart';
 import 'package:airease/screens/homepage.dart';
 import 'package:airease/screens/intro/intro_screen.dart';
+import 'package:airease/screens/loginform.dart';
 import 'package:airease/screens/mytrip.dart';
 import 'package:airease/screens/profileScreen.dart';
 import 'package:flutter/material.dart';
@@ -53,7 +54,9 @@ class _MyAppState extends State<MyApp> {
       ),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: _pages[_selectedIndex],
+        body: 
+        
+        _pages[_selectedIndex],
         bottomNavigationBar: Container(
           color: Color.fromRGBO(33, 134, 140, 1),
           child: Padding(

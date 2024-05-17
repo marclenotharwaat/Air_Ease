@@ -1,4 +1,5 @@
 
+import 'package:airease/config.dart';
 import 'package:airease/models/ticket_model.dart';
 import 'package:dio/dio.dart';
 
@@ -11,7 +12,7 @@ class GetTickets {
   Future<List<TicketModel>> getTickets() async {
     try {
       Response response =
-          await dio.get('http://192.168.1.8:10000/ticket/getTicket/6643b0cca6293ddd635de83c');
+          await dio.get('${urlBase}/ticket/getTicket/6643b0cca6293ddd635de83c');
       print(response);
       Map<String, dynamic> jsonData = response.data;
       List<dynamic> tickets = jsonData['data'];
@@ -20,10 +21,10 @@ class GetTickets {
         TicketModel ticketModel = TicketModel(
             ticketNumber: ticket['ticketNumber'],
             from: ticket['from'],
-            distination: ticket['distination'],
+            to: ticket['to'],
             price: ticket['price'],
             departureDate: DateTime.parse(ticket['departureDate']),
-            abbreviationDistination: ticket['abbreviationDistination'],
+            abbreviationTo: ticket['abbreviationTo'],
             abbreviationFrom: ticket['abbreviationFrom'],
             kindOfTicket: ticket['kindOfTicket'],
             ticktOwner: ticket['ticktOwner'],

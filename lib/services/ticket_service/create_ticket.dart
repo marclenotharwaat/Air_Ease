@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:airease/helper/api.dart';
+import 'package:airease/config.dart';
 import 'package:airease/models/ticket_model.dart';
 import "package:http/http.dart" as http;
 
@@ -18,7 +18,7 @@ class CreateTicket {
     try {
       print(requestBody);
       final response = await http.post(
-        Uri.parse("http://192.168.1.8:10000/ticket"),
+        Uri.parse("${urlBase}/ticket"),
         headers: {"Content-Type":"application/json"},
         body: jsonEncode(requestBody),
       );

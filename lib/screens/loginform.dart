@@ -1,4 +1,6 @@
-
+import 'package:airease/models/user_model.dart';
+import 'package:airease/screens/adduser.dart';
+import 'package:airease/screens/homepage.dart';
 import 'package:airease/services/user_service/login.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -151,10 +153,17 @@ class _LoginUserState extends State<LoginUser> {
                           String password = passwordController.text;
                           // Now you have the email and password values
 
-            
-                              await Login().loginUser(email, password);
-
+                          await Login().loginUser(email, password);
                           print(email);
+                          if (UserModel.id != "") {
+                            print(UserModel.id);
+                            Navigator.pushReplacement(context,
+                                MaterialPageRoute(
+                              builder: (context) {
+                                return HomePage();
+                              },
+                            ));
+                          }
                           // If all validations pass, log in user
                         },
                         child: Text(
@@ -181,21 +190,21 @@ class _LoginUserState extends State<LoginUser> {
                     children: [
                       Text(
                         "Don’t have an account?",
-                        style: TextStyle(color: Colors.white, fontSize: 16),
+                        style: TextStyle(color: Colors.white, fontSize: 14),
                       ),
                       GestureDetector(
                         onTap: () {
-                          // Navigator.push(context, MaterialPageRoute(
-                          //   builder: (context) {
-                          //     return AddUser();
-                          //   },
-                          // ));
+                          Navigator.push(context, MaterialPageRoute(
+                            builder: (context) {
+                              return AddUser();
+                            },
+                          ));
                         },
                         child: Text(
                           " Sign up",
                           style: TextStyle(
                               color: Color(0xff45EA69),
-                              fontSize: 16,
+                              fontSize: 14,
                               fontWeight: FontWeight.bold),
                         ),
                       )

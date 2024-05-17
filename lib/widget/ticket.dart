@@ -1,24 +1,11 @@
+import 'package:airease/models/flight_model.dart';
 import 'package:flutter/material.dart';
 
 class Ticket extends StatelessWidget {
   const Ticket(
-      {super.key,
-      required this.fromCity,
-      required this.toCity,
-      required this.date,
-      required this.timeOfFlight,
-      required this.flightNumber,
-      required this.price,
-      required this.fromCountry,
-      required this.toCountry});
-  final String fromCity;
-  final String fromCountry;
-  final String toCity;
-  final String toCountry;
-  final String date;
-  final String timeOfFlight;
-  final String flightNumber;
-  final int price;
+      {super.key, required this.flightModel,
+    });
+  final FlightModel  flightModel;
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +38,7 @@ class Ticket extends StatelessWidget {
                 Row(
                   children: <Widget>[
                     Text(
-                      '$fromCountry',
+                      flightModel.abbreviationFrom,
                       style: TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.w500,
@@ -141,7 +128,7 @@ class Ticket extends StatelessWidget {
                       width: 16,
                     ),
                     Text(
-                      '$toCountry',
+                      flightModel.abbreviationTo,
                       style: TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.w500,
@@ -158,7 +145,7 @@ class Ticket extends StatelessWidget {
                     SizedBox(
                       width: 100,
                       child: Text(
-                        '$fromCity',
+                       flightModel.from,
                         style: TextStyle(
                             fontSize: 14,
                             color: Colors.black,
@@ -166,7 +153,7 @@ class Ticket extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      '$timeOfFlight',
+                      flightModel.numOfFlightHour,
                       style: TextStyle(
                           fontSize: 13,
                           fontWeight: FontWeight.bold,
@@ -175,7 +162,7 @@ class Ticket extends StatelessWidget {
                     SizedBox(
                       width: 100,
                       child: Text(
-                        '$toCity',
+                        flightModel.to,
                         textAlign: TextAlign.end,
                         style: TextStyle(fontSize: 14, color: Colors.black),
                       ),
@@ -211,11 +198,11 @@ class Ticket extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Text(
-                      '$date',
+                      "${flightModel.departureDate.year}"+"/${flightModel.departureDate.month}"+"/${flightModel.departureDate.day}",
                       style: TextStyle(fontSize: 14, color: Colors.black),
                     ),
                     Text(
-                      '$flightNumber',
+                      flightModel.id,
                       style: TextStyle(fontSize: 14, color: Colors.black),
                     ),
                   ],
