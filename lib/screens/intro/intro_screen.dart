@@ -3,7 +3,7 @@ import 'package:airease/screens/intro/onboarding4.dart';
 import 'package:flutter/material.dart';
 
 class IntroScreen extends StatefulWidget {
-  const IntroScreen({Key? key}) : super(key: key);
+  const IntroScreen({Key? key, }) : super(key: key);
 
   @override
   _IntroScreenState createState() => _IntroScreenState();

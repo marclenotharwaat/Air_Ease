@@ -1,3 +1,4 @@
+import 'package:airease/models/flight_model.dart';
 import 'package:airease/models/ticket_model.dart';
 import 'package:airease/screens/boarding_pass.dart';
 import 'package:airease/services/ticket_service/create_ticket.dart';
@@ -5,6 +6,9 @@ import 'package:airease/services/ticket_service/create_ticket.dart';
 import 'package:flutter/material.dart';
 
 class FlightBook extends StatelessWidget {
+  final FlightModel flightModel;
+
+  const FlightBook({super.key, required this.flightModel});
   @override
   Widget build(BuildContext context) {
     final List<String> items = ['business', 'economic'];
@@ -58,7 +62,7 @@ class FlightBook extends StatelessWidget {
                     Row(
                       children: [
                         Text(
-                          "New york",
+                          flightModel.from,
                           style: TextStyle(
                             color: Colors.black,
                           ),
@@ -85,7 +89,7 @@ class FlightBook extends StatelessWidget {
                     Row(
                       children: [
                         Text(
-                          "San Fransisco",
+                          flightModel.to,
                           style: TextStyle(
                             color: Colors.black,
                           ),
@@ -112,7 +116,7 @@ class FlightBook extends StatelessWidget {
                     Row(
                       children: [
                         Text(
-                          "22/4/2023",
+                         "${flightModel.arrivalDate.year}"+"/${flightModel.arrivalDate.month}"+"/${flightModel.arrivalDate.day}" ,
                           style: TextStyle(
                             color: Colors.black,
                           ),
@@ -211,7 +215,7 @@ class FlightBook extends StatelessWidget {
                             onPressed: () async {
                               String kindOfTicket = selectedItem;
                               String ticktOwner = "662c402d6616d4579c75bcf3";
-                              String flight = "6643a8f804f2a580163b5d3e";
+                              String flight = flightModel.id;
 
                               TicketModel? ticket = await CreateTicket()
                                   .createTicket(

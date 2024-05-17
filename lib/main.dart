@@ -1,5 +1,6 @@
 import 'package:airease/screens/available_flights.dart';
 import 'package:airease/screens/homepage.dart';
+import 'package:airease/screens/intro/intro_screen.dart';
 import 'package:airease/screens/mytrip.dart';
 import 'package:airease/screens/profileScreen.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   int _selectedIndex = 0;
+  bool _showIntroScreen = true;
 
   final List<Widget> _pages = [
     HomePage(),
@@ -30,6 +32,12 @@ class _MyAppState extends State<MyApp> {
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
+    });
+  }
+
+  void _hideIntroScreen() {
+    setState(() {
+      _showIntroScreen = false;
     });
   }
 
