@@ -1,13 +1,6 @@
-import 'package:airease/screens/available_flights.dart';
-import 'package:airease/screens/homepage.dart';
 import 'package:airease/screens/intro/intro_screen.dart';
-import 'package:airease/screens/loginform.dart';
-import 'package:airease/screens/mytrip.dart';
-import 'package:airease/screens/profileScreen.dart';
-import 'package:airease/services/user_service/login.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,28 +13,10 @@ class MyApp extends StatefulWidget {
   State<MyApp> createState() => _MyAppState();
 }
 
+
+
 class _MyAppState extends State<MyApp> {
-  int _selectedIndex = 0;
-  bool _showIntroScreen = true;
 
-  final List<Widget> _pages = [
-    HomePage(),
-    AvailableFlights(),
-    MyTrip(),
-    ProfileScreen(),
-  ];
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
-  void _hideIntroScreen() {
-    setState(() {
-      _showIntroScreen = false;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +30,7 @@ class _MyAppState extends State<MyApp> {
       ),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: LoginUser()
+        body: IntroScreen()
         
         // _pages[_selectedIndex],
         // bottomNavigationBar: Container(

@@ -200,7 +200,7 @@ class FlightBook extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         Text(
-                          "\$2000",
+                          "\$"+flightModel.price.toString(),
                           style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,

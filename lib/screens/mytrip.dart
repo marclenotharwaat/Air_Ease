@@ -18,7 +18,7 @@ class MyTrip extends StatelessWidget {
                 fontSize: 18, fontWeight: FontWeight.w600, color: Colors.white),
           ),
           elevation: 0,
-      
+      automaticallyImplyLeading: false,
         ),
         body: TicketListViewBulder());
   }

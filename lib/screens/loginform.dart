@@ -1,6 +1,7 @@
 import 'package:airease/models/user_model.dart';
 import 'package:airease/screens/adduser.dart';
 import 'package:airease/screens/homepage.dart';
+import 'package:airease/screens/navbar.dart';
 import 'package:airease/services/user_service/login.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +27,7 @@ class _LoginUserState extends State<LoginUser> {
           style: TextStyle(color: Colors.white),
         ),
         backgroundColor: Color(0xff21868C),
+        automaticallyImplyLeading: false,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -160,7 +162,7 @@ class _LoginUserState extends State<LoginUser> {
                             Navigator.pushReplacement(context,
                                 MaterialPageRoute(
                               builder: (context) {
-                                return HomePage();
+                                return Navbar();
                               },
                             ));
                           }

@@ -19,7 +19,7 @@ class AvailableFlights extends StatelessWidget {
                 fontSize: 20, fontWeight: FontWeight.w600, color: Colors.white),
           ),
           elevation: 0,
-      
+      automaticallyImplyLeading: false,
         ),
         body: FlightListViewBuilder());
   }

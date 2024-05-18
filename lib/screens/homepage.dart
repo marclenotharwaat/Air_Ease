@@ -21,24 +21,14 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-
     return Scaffold(
       key: _scaffoldKey,
       backgroundColor: Color(0xFF21868C),
-      // appBar: AppBar(
-      //   backgroundColor: Color(0xFF21868C),
-      //   // leading: IconButton(
-      //   //   icon: Icon(Icons.menu, color: Color.fromRGBO(255, 255, 255, 1)),
-      //   //   onPressed: () {
-      //   //     _scaffoldKey.currentState!.openDrawer();
-      //   //   },
-      //   // ),
-      // ),
-    //  drawer: Drawer(),
       body: Builder(
         builder: (BuildContext context) {
           return Container(
             child: SingleChildScrollView(
+              
               child: Column(
                 children: [
                   SizedBox(height: 70,),
@@ -112,26 +102,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       SizedBox(width: 100),
 
-                      //   TextButton(
-                      //   onPressed: () {},
-                      //   style: TextButton.styleFrom(
-                      //     padding: EdgeInsets.zero,
-                      //     tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      //     minimumSize: Size(0, 0),
-                      //     shape: RoundedRectangleBorder(
-                      //       borderRadius: BorderRadius.zero,
-                      //     ),
-                      //     backgroundColor: Colors.transparent,
-                      //   ),
-                      //   child: Text(
-                      //     "View All",
-                      //     style: TextStyle(
-                      //       color: Color.fromRGBO(255, 255, 255, 1),
-                      //       fontSize: 18,
-                      //       fontFamily: 'Roboto',
-                      //     ),
-                      //   ),
-                      // ),
+            
                     ],
                   ),
                   //  SizedBox(height: 10),

@@ -292,7 +292,7 @@ class Flight extends StatelessWidget {
                   ),
                   Expanded(
                     child: Text(
-                      "\$500",
+                       "\$"+flightModel.price.toString(),
                       textAlign: TextAlign.end,
                       style: TextStyle(
                           fontSize: 18,

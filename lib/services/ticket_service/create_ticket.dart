@@ -16,7 +16,7 @@ class CreateTicket {
     };
 
     try {
-      print(requestBody);
+      print(requestBody); 
       final response = await http.post(
         Uri.parse("${urlBase}/ticket"),
         headers: {"Content-Type":"application/json"},

@@ -2,8 +2,8 @@ import 'dart:convert';
 
 import 'package:airease/config.dart';
 import 'package:airease/models/user_model.dart';
-import 'package:airease/screens/homepage.dart';
 import 'package:airease/screens/loginform.dart';
+import 'package:airease/screens/navbar.dart';
 import 'package:country_list_pick/country_list_pick.dart';
 import 'package:flutter/material.dart';
 
@@ -114,7 +114,7 @@ class AddUserState extends State<AddUser> {
         UserModel.password = await respoDate['password'];
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => HomePage()),
+          MaterialPageRoute(builder: (context) => Navbar()),
         );
       } else if (response.statusCode == 400) {
         print('Login Failed: ${data}');
@@ -410,11 +410,7 @@ class AddUserState extends State<AddUser> {
                             ),
                             GestureDetector(
                               onTap: () {
-                                Navigator.push(context, MaterialPageRoute(
-                                  builder: (context) {
-                                    return AddUser();
-                                  },
-                                ));
+                                Navigator.pop(context);
                               },
                               child: Text(
                                 " login",

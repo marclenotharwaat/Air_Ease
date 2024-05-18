@@ -1,5 +1,6 @@
 import 'package:airease/models/flight_model.dart';
 import 'package:airease/screens/homepage.dart';
+import 'package:airease/screens/navbar.dart';
 import 'package:airease/widget/ticket.dart';
 import 'package:flutter/material.dart';
 
@@ -25,7 +26,7 @@ final FlightModel flightModel;
           onPressed: () {
             // Perform your custom action when the back button is pressed
             Navigator.push(context, MaterialPageRoute(builder: (context) {
-             return HomePage();
+             return Navbar();
             },));
           },
         ),

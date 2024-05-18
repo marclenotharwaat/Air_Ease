@@ -2,6 +2,8 @@ import 'package:airease/screens/homepage.dart';
 import 'package:airease/screens/intro/screen1.dart';
 import 'package:airease/screens/intro/screen2.dart';
 import 'package:airease/screens/intro/screen3.dart';
+import 'package:airease/screens/loginform.dart';
+import 'package:airease/screens/navbar.dart';
 import 'package:flutter/material.dart';
 
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -42,7 +44,7 @@ class _OnBoarding4State extends State<OnBoarding4> {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => HomePage()),
+                  MaterialPageRoute(builder: (context) => LoginUser()),
                 );
               },
               child: Text(
@@ -75,11 +77,11 @@ class _OnBoarding4State extends State<OnBoarding4> {
                     onTap: () {
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (context) => HomePage()),
+                        MaterialPageRoute(builder: (context) => LoginUser()),
                       );
                     },
                     child: Container(
-                      margin: EdgeInsets.only(left: 180.0),
+                      margin: EdgeInsets.only(left: 140.0),
                       padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10.0),
@@ -103,7 +105,7 @@ class _OnBoarding4State extends State<OnBoarding4> {
                     );
                   },
                   child: Container(
-                    margin: EdgeInsets.only(left: 200.0),
+                    margin: EdgeInsets.only(left: 160.0),
                     padding: EdgeInsets.fromLTRB(30, 15, 30, 15),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10.0),

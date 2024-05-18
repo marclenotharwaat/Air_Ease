@@ -11,6 +11,7 @@ class ProfileScreen extends StatelessWidget {
        // backgroundColor: const Color(0xFF1D1D1F),
         title: Text('Profile',style: TextStyle(color: Colors.white),),
         centerTitle: true,
+        automaticallyImplyLeading: false,
         // leading: Container(
         //   decoration: BoxDecoration(
         //     border: Border.all(color: const Color(0xFF8C8A93), width: 2),
@@ -34,7 +35,7 @@ class ProfileScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    UserModel.firstName + UserModel.lastName,
+                    UserModel.firstName + " "+ UserModel.lastName,
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 19,
